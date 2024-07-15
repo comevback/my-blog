@@ -22,8 +22,6 @@ const WatchPage = (props) => {
         return { x2, y2 };
     };
 
-    // to draw the pointer, need two coordinates
-    // ポインタを描画するためには2つの座標が必要
     const calculateCoordinates1 = (time) => {
         const cx = 150;
         const cy = 150;
@@ -41,8 +39,6 @@ const WatchPage = (props) => {
         return { x1, y1, x2, y2 };
     };
 
-    // parse the time string to a number
-    // 時間の文字列を数値に変換する
     const parseTime = (timeString) => {
         if (timeString.includes(":")) {
             const [hours, minutes] = timeString.split(":").map(Number);
@@ -80,9 +76,10 @@ const WatchPage = (props) => {
     return (
         <svg viewBox="0 0 300 300" className="w-36 h-auto sm:w-80">
             <circle cx="150" cy="150" r="140" stroke="gray" strokeWidth="5" fill='none' />
-            <line x1={coorTime.x1} y1={coorTime.y1} x2={coorTime.x2} y2={coorTime.y2} stroke="red" strokeWidth="12" />
-            <line x1="150" y1="150" x2={coorStartTime.x2} y2={coorStartTime.y2} stroke="blue" strokeWidth="3" />
-            <line x1="150" y1="150" x2={coorEndTime.x2} y2={coorEndTime.y2} stroke="green" strokeWidth="3" />
+            <circle cx="150" cy="150" r="7" stroke="gray" strokeWidth="3" fill='fill' />
+            <line x1={coorTime.x1} y1={coorTime.y1} x2={coorTime.x2} y2={coorTime.y2} stroke="lightgreen" strokeWidth="12" />
+            <line x1="150" y1="150" x2={coorStartTime.x2} y2={coorStartTime.y2} stroke="lightblue" strokeWidth="3" />
+            <line x1="150" y1="150" x2={coorEndTime.x2} y2={coorEndTime.y2} stroke="pink" strokeWidth="3" />
             <text x="150" y="35" textAnchor="middle" fontSize="24">0</text>
             <text x="275" y="155" textAnchor="middle" fontSize="24">6</text>
             <text x="150" y="280" textAnchor="middle" fontSize="24">12</text>
