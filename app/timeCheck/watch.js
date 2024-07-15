@@ -2,11 +2,12 @@
 import React, { useState, useEffect } from 'react';
 
 const WatchPage = (props) => {
-    const [coorTime, setCoorTime] = useState({ x1: 150, y1: 150, x2: 150, y2: 150 }); // 初始化线段终点的状态
-    const [coorStartTime, setCoorStartTime] = useState({ x2: 150, y2: 150 }); // 初始化线段终点的状态
-    const [coorEndTime, setCoorEndTime] = useState({ x2: 150, y2: 150 }); // 初始化线段终点的状态
+    const [coorTime, setCoorTime] = useState({ x1: 150, y1: 150, x2: 150, y2: 150 });
+    const [coorStartTime, setCoorStartTime] = useState({ x2: 150, y2: 150 });
+    const [coorEndTime, setCoorEndTime] = useState({ x2: 150, y2: 150 });
 
     // calculate the coordinates of the line end based on the time
+    // 時間に基づいて線の終点の座標を計算する
     const calculateCoordinates = (time) => {
         const cx = 150;
         const cy = 150;
@@ -21,6 +22,8 @@ const WatchPage = (props) => {
         return { x2, y2 };
     };
 
+    // to draw the pointer, need two coordinates
+    // ポインタを描画するためには2つの座標が必要
     const calculateCoordinates1 = (time) => {
         const cx = 150;
         const cy = 150;
@@ -38,6 +41,8 @@ const WatchPage = (props) => {
         return { x1, y1, x2, y2 };
     };
 
+    // parse the time string to a number
+    // 時間の文字列を数値に変換する
     const parseTime = (timeString) => {
         if (timeString.includes(":")) {
             const [hours, minutes] = timeString.split(":").map(Number);
@@ -48,6 +53,7 @@ const WatchPage = (props) => {
     };
 
     // detect changes in time and update the coordinates
+    // 時間の変更を検出して座標を更新する
     useEffect(() => {
         if (props.time) {
             if (props.time < 0 || props.time > 23) {
@@ -72,11 +78,15 @@ const WatchPage = (props) => {
     }, [props.time, props.startTime, props.endTime]);
 
     return (
-        <svg width={300} height={300}>
+        <svg viewBox="0 0 300 300" className="w-36 h-auto sm:w-80">
             <circle cx="150" cy="150" r="140" stroke="gray" strokeWidth="5" fill='none' />
             <line x1={coorTime.x1} y1={coorTime.y1} x2={coorTime.x2} y2={coorTime.y2} stroke="red" strokeWidth="12" />
             <line x1="150" y1="150" x2={coorStartTime.x2} y2={coorStartTime.y2} stroke="blue" strokeWidth="3" />
             <line x1="150" y1="150" x2={coorEndTime.x2} y2={coorEndTime.y2} stroke="green" strokeWidth="3" />
+            <text x="150" y="35" textAnchor="middle" fontSize="24">0</text>
+            <text x="275" y="155" textAnchor="middle" fontSize="24">6</text>
+            <text x="150" y="280" textAnchor="middle" fontSize="24">12</text>
+            <text x="30" y="155" textAnchor="middle" fontSize="24">18</text>
         </svg>
     );
 };

@@ -41,7 +41,6 @@ const CheckTimePage = () => {
             setValid(true);
         }
 
-        // console.log(time, startTime, endTime);
         if (startTime < endTime) {
             return time >= startTime && time < endTime;
         } else if (startTime > endTime) {
@@ -53,15 +52,15 @@ const CheckTimePage = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen gap-6">
+        <div className="flex flex-col items-center justify-center min-h-screen gap-6 h-[100vh]">
             {valid ? (
                 <>
-                    <h1 className="text-6xl text-center"> {time} {result ? "is in" : "is not in"} [{startTime} - {endTime})</h1>
+                    <h1 className="text-2xl text-center sm:text-6xl"> {time} {result ? "is in" : "is not in"} [{startTime} - {endTime})</h1>
                     <h1 className="text-6xl">{result ? "✅" : "❌"}</h1>
                 </>
             ) : (
                 <>
-                    <h1 className="text-6xl text-center">Please enter a valid time between 0 and 23.</h1>
+                    <h1 className="text-2xl text-center sm:text-6xl">Please enter a valid time between 0 and 23.</h1>
                     <h1 className="text-6xl">🫡</h1>
                 </>
             )}
