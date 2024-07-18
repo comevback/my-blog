@@ -3,7 +3,7 @@ import Link from "next/link";
 const Home = () => {
   return (
     <div className="">
-      <div className="bg-[url('/album/bg2.jpg')] bg-cover bg-bottom bg-no-repeat bg-blend-darken min-h-screen flex flex-col items-center justify-center">
+      <div className="bg-[url('/bg2.jpg')] bg-cover bg-bottom bg-no-repeat bg-blend-darken min-h-screen flex flex-col items-center justify-center">
 
         <div className="text-8xl font-bold text-black">Welcome</div>
         <ul className="h-88 overflow-auto flex flex-col mb-10 p-10 gap-6 text-black font-bold text-3xl rounded-lg">
