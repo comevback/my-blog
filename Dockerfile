@@ -27,6 +27,9 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/package*.json ./
 
+# 将public文件夹复制到工作目录
+COPY --from=build /app/public ./public
+
 # 暴露端口
 EXPOSE 3000
 
