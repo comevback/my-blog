@@ -5,8 +5,8 @@ const Home = () => {
     <div className="">
       <div className="bg-[url('/bg2.jpg')] bg-cover bg-bottom bg-no-repeat bg-blend-darken min-h-screen flex flex-col items-center justify-center">
 
-        <div className="text-8xl font-bold text-black">Welcome</div>
-        <ul className="h-88 overflow-auto flex flex-col mb-10 p-10 gap-6 text-black font-bold text-3xl rounded-lg">
+        {/* <div className="text-8xl font-bold text-black">Welcome</div> */}
+        <ul className="h-88 overflow-auto flex flex-col mb-24 p-10 gap-6 text-black font-bold text-6xl rounded-lg">
           <li className="hover:text-white transition duration-300">
             <Link href="/afterlife">Afterlife</Link>
           </li>
